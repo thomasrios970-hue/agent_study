@@ -345,6 +345,6 @@ for i in range(5):#设置最大循环次数
 
 ### ***整体文件如下：
 
-<img src="笔记.assets/image-20260420170622448.png" alt="image-20260420170622448" style="zoom: 33%;" /> 
+<img src="README.assets/image-20260420170622448.png" alt="image-20260420170622448" style="zoom: 33%;" /> 
 
 执行main函数即可
