@@ -55,7 +55,7 @@ llm=OpenAICompatibleClient(
 #这里调用的是自己定义的类
 
 # --初始化--
-user_prompt ="你好，请帮我查询以下今天北京的天气，然后根据天气推荐一个合适的旅游景点"
+user_prompt ="你好，请帮我查询以下今天大理的天气，然后根据天气推荐一个合适的旅游景点"
 prompt_history=[f"用户请求{user_prompt}"]
 
 print(f"用户输入：{user_prompt}\n"+ "="*40)
