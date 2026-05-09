@@ -7,9 +7,9 @@ load_dotenv()
 class HelloAgentsLLM:
     def __init__(self,model:str=None,apiKey:str=None,baseUrl:str=None,timeout:int=None):
         #初始化模型参数
-        self.model=os.environ.get("LLM_MODEL_ID")
+        self.model=os.environ.get("LLM_MODEL_ID") or model
         self.apiKey=os.environ.get("OPENAI_API_KEY") or apiKey
-        self.baseUrl=os.environ.get("LLM_BASE_URL")
+        self.baseUrl=os.environ.get("LLM_BASE_URL") or baseUrl
         self.timeout=timeout
         #设置模型参数
 
@@ -31,7 +31,11 @@ class HelloAgentsLLM:
             print("大语言模型响应成功")
             collected_content=[]
             for chunk in response:
-                content=chunk.choices[0].delta.content
+                if not chunk.choices:
+                    continue
+
+                delta=chunk.choices[0].delta
+                content=getattr(delta,"content",None) or ""
                 print(content,end='',flush=True)
                 collected_content.append(content)
 
